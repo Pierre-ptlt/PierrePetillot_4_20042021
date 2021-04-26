@@ -27,4 +27,28 @@ modalClose.addEventListener('click', function() {
     modalbg.style.display = "none";
 });
 
+// formulaire si erreur
+
+
+
+// conditions validité form
+
+const formulaire = document.getElementById('formulaire');
+const firstInput = document.getElementById('first');
+const nameInput = document.getElementById('last');
+const mailInput = document.getElementById('email');
+const dateInput = document.getElementById('birthdate');
+const quantityInput = document.getElementById('quantity');
+const radio1 = document.getElementById('location1');
+
+firstInput.addEventListener("input", function(e) {
+  let value = e.target.value;
+  if (value.length >= 2) {
+    isValid = true;
+  }
+  else {
+    isValid = false;
+  }
+});
+
 
