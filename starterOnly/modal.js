@@ -60,6 +60,7 @@ function editNav() {
 
 function launchModal() {
   modalbg.style.display = "block";
+  displayBtn();
 }
 
 function hideModal() {
@@ -134,11 +135,12 @@ function atLeastOneRadio() {
 
 function isFormValid() {
   let verif = false;
-  if (isFirstNameValid && isNameValid && emailIsValid)
+  if (isFirstNameValid && isNameValid && emailIsValid && atLeastOneRadio)
   {
     verif = true;
   }
-  else {
+  else
+  {
     verif = false;
   }
   return verif;
