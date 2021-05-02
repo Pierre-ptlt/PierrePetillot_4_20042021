@@ -63,7 +63,7 @@
               onsubmit="return validate();"
             >
               <div
-                class="formData">
+                class="formData" data-error="le prénom est invalide">
                 <label for="first" required>Prénom</label><br>
                 <input
                   class="text-control"
@@ -74,7 +74,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom">
                 <label for="last" required>Nom</label><br>
                 <input
                   class="text-control"
@@ -84,7 +84,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="L'e-mail est invalide">
                 <label for="email" required>E-mail</label><br>
                 <input
                   class="text-control"
@@ -94,7 +94,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Vous devez entrer votre date de naissance">
                 <label for="birthdate" required>Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -104,13 +104,13 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez réessayer">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez choisir une option">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,7 +180,7 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" data-error="Vous devez accepter les termes et conditions.">
                 <input
                   class="checkbox-input"
                   type="checkbox"
