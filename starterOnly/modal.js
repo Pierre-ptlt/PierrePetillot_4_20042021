@@ -10,6 +10,8 @@ const mailInput = document.getElementById('email');
 const dateInput = document.getElementById('birthdate');
 const quantityInput = document.getElementById('quantity');
 const radioInput = document.querySelector('radio');
+let submitBtn = document.querySelector('.btn-submit');
+
 
 
 // modal events
@@ -23,6 +25,7 @@ firstInput.addEventListener('input', function() {
   {
     showError(firstInput);
   }
+  isFormValid();
 });
 
 nameInput.addEventListener('input', function() {
@@ -31,22 +34,25 @@ nameInput.addEventListener('input', function() {
   {
     showError(nameInput);
   }
+  isFormValid();
 });
 
 mailInput.addEventListener('input', function() {
   hideError(mailInput);
-  if (!emailIsValid(mailInput.value))
+  if (!isEmailValid())
   {
     showError(mailInput);
   }
+  isFormValid();
 });
 
 quantityInput.addEventListener('input', function(){
   hideError(quantityInput);
-  if (isQuantityValid)
+  if (!isQuantityValid())
   {
     showError(quantityInput);
   }
+  isFormValid();
 });
 
 function editNav() {
@@ -60,7 +66,7 @@ function editNav() {
 
 function launchModal() {
   modalbg.style.display = "block";
-  displayBtn();
+  disableSubmitBtn();
 }
 
 function hideModal() {
@@ -91,10 +97,7 @@ function isFirstNameValid() {
   {
     return false;
   }
-  else
-  {
-    return true;
-  }
+  return true;
 }
 
 function isNameValid()
@@ -108,25 +111,15 @@ function isNameValid()
   {
     return false;
   }
-  else
-  {
-    return true;
-  }
+  return true;
 }
 
-function emailIsValid (email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+function isEmailValid () {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mailInput.value);
 }
 
 function isQuantityValid() {
-  if (quantityInput.value.length == 0)
-  {
-    return false;
-  }
-  else
-  {
-    return true;
-  }
+  return (quantityInput.value.length > 0 && quantityInput.value >= 0);
 }
 
 function atLeastOneRadio() {
@@ -134,23 +127,27 @@ function atLeastOneRadio() {
 }
 
 function isFormValid() {
-  let verif = false;
-  if (isFirstNameValid && isNameValid && emailIsValid && atLeastOneRadio)
+  disableSubmitBtn();
+  let isValid = (isFirstNameValid() && isNameValid() && isEmailValid());
+
+  if (isValid)
   {
-    verif = true;
+    enableSubmitBtn();
   }
-  else
-  {
-    verif = false;
-  }
-  return verif;
+  return isValid;
 }
 
-function displayBtn() {
-  let submitBtn = document.querySelector('btn-submit');
-  if (!isFormValid)
+function enableSubmitBtn() {
   {
-    submitBtn.setAttribute('disabled', true);
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = 1;
+    submitBtn.style.cursor = 'pointer';
+  }
+}
+
+function disableSubmitBtn() {
+  {
+    submitBtn.disabled = true;
     submitBtn.style.opacity = 0.5;
     submitBtn.style.cursor = 'not-allowed';
   }
