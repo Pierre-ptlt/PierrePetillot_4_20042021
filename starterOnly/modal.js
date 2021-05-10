@@ -10,7 +10,9 @@ const mailInput = document.getElementById('email');
 const dateInput = document.getElementById('birthdate');
 const quantityInput = document.getElementById('quantity');
 const radioInput = document.querySelector('radio');
-let submitBtn = document.querySelector('.btn-submit');
+const submitBtn = document.querySelector('.btn-submit');
+const radios =  document.querySelectorAll('[name=location]');
+const conditionCheck = document.getElementById('checkbox1');
 
 
 
@@ -54,6 +56,26 @@ quantityInput.addEventListener('input', function(){
   }
   isFormValid();
 });
+
+conditionCheck.addEventListener('click', function() {
+  hideError(conditionCheck);
+  if (!isConditionValid())
+  {
+    showError(conditionCheck);
+  }
+  isFormValid();
+});
+
+submitBtn.addEventListener('click', function() {
+  alert("Merci! Votre réservation a été reçue.");
+});
+
+for (let radio of radios) {
+  radio.addEventListener('click', function() {
+    isFormValid();
+    return 0;
+  });
+}
 
 function editNav() {
   var x = document.getElementById("myTopnav");
@@ -122,13 +144,32 @@ function isQuantityValid() {
   return (quantityInput.value.length > 0 && quantityInput.value >= 0);
 }
 
-function atLeastOneRadio() {
-  return ($('input[type=radio]:checked').size() > 0);
+function isConditionValid() {
+  if (conditionCheck.checked)
+  {
+    return true;
+  }
+  return false;
+}
+
+function isCityValid() {
+  for (let radio of radios)
+  {
+    if (radio.checked)
+    {
+      return true;
+    }
+  }
+  return false;
 }
 
 function isFormValid() {
   disableSubmitBtn();
-  let isValid = (isFirstNameValid() && isNameValid() && isEmailValid());
+  let isValid = (isCityValid()
+  && isNameValid()
+  && isEmailValid()
+  && isFirstNameValid()
+  && isConditionValid());
 
   if (isValid)
   {
