@@ -13,7 +13,6 @@ const radioInput = document.querySelector('radio');
 const submitBtn = document.querySelector('.btn-submit');
 const radios =  document.querySelectorAll('[name=location]');
 const conditionCheck = document.getElementById('checkbox1');
-const confirmation = document.getElementsByClassName('.bground2');
 
 
 
@@ -68,7 +67,7 @@ conditionCheck.addEventListener('click', function() {
 });
 
 submitBtn.addEventListener('click', function() {
-  confirmation.style.display = "block";
+  alert("Merxi ! Votre réservation a été reçue.")
 });
 
 for (let radio of radios) {
