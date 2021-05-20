@@ -67,7 +67,7 @@ conditionCheck.addEventListener('click', function() {
 });
 
 submitBtn.addEventListener('click', function() {
-  alert("Merxi ! Votre réservation a été reçue.")
+  alert("Merci ! Votre réservation a été reçue.");
 });
 
 for (let radio of radios) {
