@@ -113,7 +113,6 @@ function hasNumber(myString) {
 }
 
 function isFirstNameValid() {
-
   if (firstInput.value.length <= 2 || firstInput.value.length > 40)
   {
     return false;
@@ -122,7 +121,7 @@ function isFirstNameValid() {
   {
     return false;
   }
-  return true;
+  return /^[a-z](?!.* {2})[ \w.-]{2,24}$/gmi.test(firstInput.value);
 }
 
 function isNameValid()
@@ -136,7 +135,7 @@ function isNameValid()
   {
     return false;
   }
-  return true;
+  return /^[a-z](?!.* {2})[ \w.-]{2,24}$/gmi.test(nameInput.value);
 }
 
 function isEmailValid () {
