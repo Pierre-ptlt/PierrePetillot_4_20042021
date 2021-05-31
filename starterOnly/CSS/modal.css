@@ -467,7 +467,7 @@ input[data-error]::after {
 #success {
   height: 500px;
   padding-top: 200px;
-  display: flex;
+  display: none;
   align-items: flex-end;
 }
 

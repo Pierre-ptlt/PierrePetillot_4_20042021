@@ -14,12 +14,14 @@ const radioInput = document.querySelector('radio');
 const submitBtn = document.querySelector('.btn-submit');
 const radios =  document.querySelectorAll('[name=location]');
 const conditionCheck = document.getElementById('checkbox1');
+const closeBtn = document.getElementById('fermer');
 
 
 
 // modal events
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalClose.addEventListener('click', hideModal);
+closeBtn.addEventListener('click', hideModal);
 
 // error form
 firstInput.addEventListener('input', function() {
