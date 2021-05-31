@@ -436,7 +436,6 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: none;
 }
 .hero-content::after {
   content: "";
