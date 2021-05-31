@@ -463,6 +463,28 @@ input[data-error]::after {
   margin-top: 57px;
   padding: 0;
 }
+
+#success {
+  height: 500px;
+  padding-top: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.fermer {
+  margin-top: 150px;
+  margin-left: 90px;
+  background: #fe142f;
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+
 .btn-signup {
   outline: none;
   text-transform: capitalize;
